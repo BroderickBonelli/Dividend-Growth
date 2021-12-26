@@ -83,37 +83,6 @@ for stock in aristocrats:
 	data.columns = columns
 
 
-	#data for table
-
-	div_growth_last = data['1y % Change'].iloc[-1].round(2)
-	div_growth_second_to_last = data['1y % Change'].iloc[-2].round(2)
-	div_growth_third_to_last = data['1y % Change'].iloc[-3].round(2)
-	div_growth_fourth_to_last = data['1y % Change'].iloc[-4].round(2)
-	div_growth_fifth_to_last = data['1y % Change'].iloc[-5].round(2)
-
-	one_year_percent_change = str(div_growth_last.round(2)) + '%'
-	three_year_percent_change = (div_growth_last + div_growth_second_to_last + div_growth_third_to_last) / 3
-	three_year_percent_change = three_year_percent_change.round(2)
-	five_year_percent_change = (div_growth_last + div_growth_second_to_last + div_growth_third_to_last + div_growth_fourth_to_last + div_growth_fifth_to_last) / 5
-	five_year_percent_change = five_year_percent_change.round(2)
-
-	#create lists to compile into dataframe
-	one_year_div_growth_list.append(div_growth_last)
-	three_year_div_growth_list.append(three_year_percent_change)
-	five_year_div_growth_list.append(five_year_percent_change)
-
-#compile df
-final_list = [aristocrats, one_year_div_growth_list, three_year_div_growth_list, five_year_div_growth_list]
-final_df = pd.DataFrame(final_list)
-final_df2 = final_df.transpose()
-
-#name columns
-final_df2.columns = ['Ticker', '1y Dividend Growth', '3y Avg Dividend Growth', '5y Avg Dividend Growth']
-
-final_df2.to_csv('/Users/broderickbonelli/Desktop/div_growth.csv')
-
-
-
 #annual dividend chart
 
 fig, ax = plt.subplots(figsize = (9,4))
