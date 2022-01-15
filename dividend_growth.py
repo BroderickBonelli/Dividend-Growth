@@ -71,7 +71,6 @@ for stock in aristocrats:
 	#ADD % CHANGE COLUMN AND CHART GROWTH RATE IN DIVIDEND
 	df2 = pd.DataFrame(df1)
 	df2['1y % Change'] = df2['Dividend'].pct_change()
-	df2 = df2.iloc[:-1, :]
 	df2['1y % Change'] = df2['1y % Change'] * 100
 
 	df2.to_csv('/Users/broderickbonelli/Desktop/div_change.csv')
